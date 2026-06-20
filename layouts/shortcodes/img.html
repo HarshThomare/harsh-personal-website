@@ -1,0 +1,10 @@
+{{- $src := (.Get "src" | default (.Get 0)) | strings.TrimPrefix "/" | strings.TrimPrefix "assets/" | strings.TrimPrefix "images/" -}}
+{{- $priority := eq (.Get "priority") "true" -}}
+{{- partial "optimized-img.html" (dict
+  "src" $src
+  "alt" (.Get "alt" | default "")
+  "style" (.Get "style" | default "")
+  "lazy" (not $priority)
+  "priority" $priority
+  "maxWidth" (.Get "maxWidth" | default 600)
+) -}}

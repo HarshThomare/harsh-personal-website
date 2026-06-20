@@ -1,0 +1,34 @@
+{{- /*
+  Renders a resized image from assets/images with optional WebP.
+  Accepts: src (path under assets/images), alt, title, class, style, lazy, priority
+*/ -}}
+{{- $src := .src | strings.TrimPrefix "/" | strings.TrimPrefix "assets/" | strings.TrimPrefix "images/" -}}
+{{- $alt := .alt | default "" -}}
+{{- $title := .title | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $style := .style | default "" -}}
+{{- $lazy := .lazy | default true -}}
+{{- $priority := .priority | default false -}}
+{{- $maxWidth := .maxWidth | default 1200 -}}
+{{- $img := resources.Get (printf "images/%s" $src) -}}
+{{- if $img -}}
+  {{- $resized := $img.Resize (printf "%dx" (int $maxWidth)) -}}
+  {{- $webp := $resized.Process "webp" -}}
+  <picture>
+    <source srcset="{{ $webp.RelPermalink }}" type="image/webp">
+    <img src="{{ $resized.RelPermalink }}"
+      alt="{{ $alt }}"
+      {{- with $title }} title="{{ . }}"{{ end -}}
+      {{- with $class }} class="{{ . }}"{{ end -}}
+      {{- with $style }} style="{{ . | safeCSS }}"{{ end -}}
+      width="{{ $resized.Width }}" height="{{ $resized.Height }}"
+      {{- if $priority }} fetchpriority="high" loading="eager"{{- else if $lazy }} loading="lazy" decoding="async"{{ end -}}>
+  </picture>
+{{- else -}}
+  {{- $fallback := (printf "assets/%s" $src) | strings.TrimPrefix "/" | absURL -}}
+  <img src="{{ $fallback }}" alt="{{ $alt }}"
+    {{- with $title }} title="{{ . }}"{{ end -}}
+    {{- with $class }} class="{{ . }}"{{ end -}}
+    {{- with $style }} style="{{ . | safeCSS }}"{{ end -}}
+    {{- if $priority }} fetchpriority="high" loading="eager"{{- else if $lazy }} loading="lazy" decoding="async"{{ end -}}>
+{{- end -}}

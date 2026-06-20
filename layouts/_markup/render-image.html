@@ -1,0 +1,2 @@
+{{- $src := .Destination | strings.TrimPrefix "/" | strings.TrimPrefix "assets/" | strings.TrimPrefix "images/" -}}
+{{- partial "optimized-img.html" (dict "src" $src "alt" .Text "title" .Title "lazy" true) -}}

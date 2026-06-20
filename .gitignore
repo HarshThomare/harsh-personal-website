@@ -1,0 +1,31 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+bin/
+
+# Local-only docs (not published to GitHub)
+IMPLEMENTATION_SUMMARY.md
+DEPLOYMENT.md
+QUICK_START.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Environment
+.env
+.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/

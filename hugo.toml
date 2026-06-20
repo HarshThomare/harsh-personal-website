@@ -1,0 +1,100 @@
+baseURL = 'https://harshthomare.github.io/harsh-personal-website/'
+languageCode = 'en-us'
+title = 'Harsh Thomare'
+theme = 'PaperMod'
+
+[pagination]
+pagerSize = 10
+
+enableInlineShortcodes = true
+enableRobotsTXT = true
+
+# Outputs
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
+# Author and site metadata
+[params]
+author = "Harsh Thomare"
+description = "Embedded Software Engineer & AI Researcher"
+
+# Forces Dark Mode for that "Night Owl" IDE feel
+defaultTheme = "dark" 
+disableThemeToggle = true 
+
+# High-contrast colors like a code editor
+# We use a bright cyan/green for that "terminal" look
+[params.assets]
+disableHLJS = false
+favicon = "favicon-32x32.png"
+favicon16x16 = "favicon-16x16.png"
+favicon32x32 = "favicon-32x32.png"
+apple_touch_icon = "apple-touch-icon.png"
+
+[params.label]
+text = "harsh@thomare:~$"
+icon = ""
+
+[params.profileMode]
+enabled = true
+title = "Harsh Thomare"
+subtitle = "Embedded Software | AI Research | Low-Level Systems"
+# This link uses your GitHub picture so it works instantly!
+imageUrl = "images/harsh-profile.jpg"
+imageWidth = 250
+imageHeight = 300
+imageTitle = "Harsh Thomare"
+
+[[params.profileMode.buttons]]
+name = "Posts"
+url = "posts"
+
+[[params.profileMode.buttons]]
+name = "CV"
+url = "resume"
+
+# Social links
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/HarshThomare"
+
+[[params.socialIcons]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/harsh-thomare-b16679167/"
+
+[[params.socialIcons]]
+name = "email"
+url = "mailto:hthomare@gmail.com"
+
+[markup.highlight]
+# 'monokai' or 'dracula' give the best IDE colors
+style = "dracula"
+lineNos = true
+lineNumbersInTable = false
+
+[params.homeInfoParams]
+Title = "System.out.println('Hello World');"
+Content = "I build software for hardware and make AI run faster."
+
+# Menu
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 1
+
+[[menu.main]]
+name = "Posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Resume"
+url = "/resume"
+weight = 3
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'

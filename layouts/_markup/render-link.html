@@ -1,0 +1,5 @@
+{{- $url := .Destination | strings.TrimPrefix "/" | absURL -}}
+<a href="{{ $url }}"
+  {{- with .Title }} title="{{ . }}"{{ end -}}
+  {{- if strings.HasSuffix .Destination ".stl" }} download{{ end -}}
+  >{{ .Text | safeHTML }}</a>

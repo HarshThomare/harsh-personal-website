@@ -1,0 +1,23 @@
+:root {
+    --theme: rgb(245, 247, 251);
+    --entry: rgb(255, 255, 255);
+    --primary: rgb(79, 70, 229);
+    --secondary: rgb(13, 148, 136);
+    --tertiary: rgb(224, 231, 255);
+    --content: rgb(30, 41, 59);
+    --code-block-bg: rgb(15, 23, 42);
+    --code-bg: rgb(241, 245, 249);
+    --border: rgb(226, 232, 240);
+}
+
+:root[data-theme="dark"] {
+    --theme: rgb(26, 27, 38);
+    --entry: rgb(36, 40, 59);
+    --primary: rgb(122, 162, 247);
+    --secondary: rgb(187, 154, 247);
+    --tertiary: rgb(65, 72, 104);
+    --content: rgb(192, 202, 245);
+    --code-block-bg: rgb(22, 22, 30);
+    --code-bg: rgb(47, 52, 73);
+    --border: rgb(59, 66, 97);
+}
